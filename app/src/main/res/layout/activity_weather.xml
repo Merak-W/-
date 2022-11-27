@@ -1,31 +1,60 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout xmlns:android="http://schemas.android.com/apk/res/android">
+<layout xmlns:tools="http://schemas.android.com/tools"
+    xmlns:android="http://schemas.android.com/apk/res/android">
 
-    <ScrollView
-        android:id="@+id/weatherLayout"
+    <androidx.drawerlayout.widget.DrawerLayout
+        android:id="@+id/drawerLayout"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:overScrollMode="never"
-        android:scrollbars="none"
-        android:visibility="invisible">
+        android:layout_height="match_parent">
 
-        <LinearLayout
+        <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+            android:id="@+id/swipeRefresh"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical">
+            android:layout_height="match_parent">
 
-            <include
-                android:id="@+id/now"
-                layout="@layout/now" />
+            <ScrollView
+                android:id="@+id/weatherLayout"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:overScrollMode="never"
+                android:scrollbars="none"
+                android:visibility="invisible">
 
-            <include
-                android:id="@+id/forecast"
-                layout="@layout/forecast" />
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
 
-            <include
-                android:id="@+id/lifeIndex"
-                layout="@layout/life_index" />
-        </LinearLayout>
+                    <include
+                        android:id="@+id/now"
+                        layout="@layout/now" />
 
-    </ScrollView>
+                    <include
+                        android:id="@+id/forecast"
+                        layout="@layout/forecast" />
+
+                    <include
+                        android:id="@+id/lifeIndex"
+                        layout="@layout/life_index" />
+                </LinearLayout>
+            </ScrollView>
+        </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_gravity="start"
+            android:background="?attr/colorPrimaryVariant"
+            android:clickable="true"
+            android:focusable="true">
+
+            <androidx.fragment.app.FragmentContainerView
+                android:id="@+id/placeFragment"
+                android:name="com.wyf.clearskyweather.ui.place.PlaceFragment"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="25dp"
+                tools:layout="@layout/fragment_place" />
+        </FrameLayout>
+    </androidx.drawerlayout.widget.DrawerLayout>
 </layout>

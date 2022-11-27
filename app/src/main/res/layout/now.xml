@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout xmlns:android="http://schemas.android.com/apk/res/android">
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <data>
 
@@ -23,6 +24,15 @@
             android:id="@+id/titleLayout"
             android:layout_width="match_parent"
             android:layout_height="70dp">
+
+            <Button
+                android:id="@+id/btn_cities"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_marginStart="15dp"
+                android:layout_gravity="center_vertical"
+                android:background="@drawable/ic_city"
+                app:backgroundTint="@color/white"/>
 
             <TextView
                 android:id="@+id/placeName"
